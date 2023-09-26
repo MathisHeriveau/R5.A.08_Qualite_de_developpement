@@ -1,0 +1,154 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Calculator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.heriveau.calculator</a>
+</div>
+
+<h1>Coverage Summary for Class: Calculator (com.heriveau.calculator)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Calculator</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    90%
+  </span>
+  <span class="absValue">
+    (18/20)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.heriveau.calculator;
+&nbsp;
+&nbsp;import java.util.HashSet;
+&nbsp;import java.util.Set;
+&nbsp;
+<b class="fc">&nbsp;public class Calculator {</b>
+&nbsp;
+&nbsp;    public int add(int opG, int opD) {
+<b class="fc">&nbsp;        if ((opG &gt; 0 &amp;&amp; opD &gt; Integer.MAX_VALUE - opG) || (opG &lt; 0 &amp;&amp; opD &lt; Integer.MIN_VALUE - opG)) {</b>
+&nbsp;            // Gérer le dépassement de la plage autorisée pour un entier
+<b class="nc">&nbsp;            System.err.println(&quot;Dépassement de la plage autorisée pour un entier lors de l&#39;addition.&quot;);</b>
+<b class="nc">&nbsp;            return 0; // Ou tout autre traitement d&#39;erreur approprié</b>
+&nbsp;        } else {
+&nbsp;            // Effectuer l&#39;addition en toute sécurité
+<b class="fc">&nbsp;            return opG + opD;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public int divise(int opG, int opD) {
+<b class="fc">&nbsp;        if (opD == 0) {</b>
+&nbsp;            // Gérer la division par zéro
+<b class="fc">&nbsp;            System.err.println(&quot;Division par zéro détectée.&quot;);</b>
+<b class="fc">&nbsp;            return 0; // Ou tout autre traitement d&#39;erreur approprié</b>
+&nbsp;        } else {
+&nbsp;            // Effectuer la division en toute sécurité
+<b class="fc">&nbsp;            return opG / opD;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public Set&lt;Integer&gt; ensembleChiffres(int pNombre) {
+<b class="fc">&nbsp;        Set&lt;Integer&gt; chiffres = new HashSet&lt;&gt;();</b>
+&nbsp;
+&nbsp;        // Convertir le nombre en positif si nécessaire
+<b class="fc">&nbsp;        int nombre = Math.abs(pNombre);</b>
+&nbsp;
+&nbsp;        // Traitement spécial pour 0
+<b class="fc">&nbsp;        if (nombre == 0) {</b>
+<b class="fc">&nbsp;            chiffres.add(0);</b>
+<b class="fc">&nbsp;            return chiffres;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        while (nombre &gt; 0) {</b>
+<b class="fc">&nbsp;            int chiffre = nombre % 10;</b>
+<b class="fc">&nbsp;            chiffres.add(chiffre);</b>
+<b class="fc">&nbsp;            nombre /= 10;</b>
+<b class="fc">&nbsp;        }</b>
+&nbsp;
+<b class="fc">&nbsp;        return chiffres;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-09-26 10:38</div>
+</div>
+</body>
+</html>
